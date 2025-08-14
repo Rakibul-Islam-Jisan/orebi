@@ -6,8 +6,23 @@ import Product from '../Product'
 import Banner from '../Layout/Banner'
 import Sales from '../Layout/Sales'
 import Terms from '../Layout/Terms'
-
+import Flex from '../Flex'
+import productOne from "../../assets/productOne.png"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import NextArrow from '../NextArrow'
+import PrevArrow from '../PrevArrow'
 const Home = () => {
+   var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow/>,
+    prevArrow: <PrevArrow/>
+  };
   return (
     <>
         <div>
@@ -15,7 +30,23 @@ const Home = () => {
           <Container>
               <Terms/>
               <Sales/>
-              <Product />
+
+              <Slider {...settings}>
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+              </Slider>
+
+
+              {/* <Flex className={'gap-5'}>
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+                <Product productImg={productOne} />
+              </Flex> */}
           </Container>
         </div>
     </>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from './Container'
-import productOne from "../assets/productOne.png"
+
 import Flex from './Flex'
 import Badge from './Badge'
 import { IoGitCompareSharp } from "react-icons/io5";
@@ -8,15 +8,15 @@ import { FaCartArrowDown } from "react-icons/fa6";
 import { GrOverview } from "react-icons/gr";
 import { FaHeart } from "react-icons/fa";
 
-const Product = () => {
+const Product = ({productImg}) => {
   return (
-    <div className='py-6'>
+    <div className='py-6 mx-4'>
       <Container>
-        <div className='w-1/4 relative group overflow-hidden main  h-[376px]'>
+        <div className=' relative group overflow-hidden main  h-[376px]'>
           <Badge badgeText={"New"} />
-          <img src={productOne}></img>
-          <div className='w-full h-[0px] opacity-0 group-hover:h-[180px] group-hover:opacity-100 transition-all duration-500 ease-in-out 
- overlay bg-white/70 absolute bottom-[80px]'>
+          <img src={productImg}></img>
+          <div className='w-full h-[0px] opacity-0 group-hover:h-[150px] group-hover:opacity-100 transition-all duration-500 ease-in-out 
+ overlay bg-white/70 absolute bottom-[100px]'>
 
 
             <div className='flex flex-col  gap-3 pt-5 items-end'>
@@ -28,10 +28,7 @@ const Product = () => {
                 <h3>Add to Cart</h3>
                 <FaCartArrowDown />
               </Flex>
-              <Flex className={'gap-2'}>
-                <h3>View Details</h3>
-                <GrOverview />
-              </Flex>
+              
               <Flex className={'gap-2'}>
                 <h3>Add to WishLisht</h3>
                 <FaHeart />
