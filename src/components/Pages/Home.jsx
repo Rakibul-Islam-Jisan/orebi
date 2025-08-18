@@ -8,11 +8,16 @@ import Sales from '../Layout/Sales'
 import Terms from '../Layout/Terms'
 import Flex from '../Flex'
 import productOne from "../../assets/productOne.png"
+import productTwo from "../../assets/productTwo.webp"
+import productThree from "../../assets/productThree.webp"
+import productFour from "../../assets/productFour.webp"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import NextArrow from '../NextArrow'
 import PrevArrow from '../PrevArrow'
+import ProductYear from '../Layout/ProductYear'
+import HeadingText from '../HeadingText'
 const Home = () => {
    var settings = {
     dots: false,
@@ -30,23 +35,33 @@ const Home = () => {
           <Container>
               <Terms/>
               <Sales/>
-
+              <HeadingText text={'New Arrivals'}/>
               <Slider {...settings}>
                 <Product productImg={productOne} />
+                <Product productImg={productTwo} />
+                <Product productImg={productThree} />
+                <Product productImg={productFour} />
                 <Product productImg={productOne} />
-                <Product productImg={productOne} />
-                <Product productImg={productOne} />
-                <Product productImg={productOne} />
-                <Product productImg={productOne} />
+                <Product productImg={productTwo} />
               </Slider>
+              
+              <HeadingText text={'Our Bestsellers'}/>
+              <Flex className={'gap-x-5 '}>
+                <Product productImg={productOne} />
+                <Product productImg={productTwo} />
+                <Product productImg={productThree} />
+                <Product productImg={productFour} />
+              </Flex>
 
+              <ProductYear/>
 
-              {/* <Flex className={'gap-5'}>
+              <HeadingText text={'Special Offers'}/>
+              <Flex className={'gap-x-5 '}>
                 <Product productImg={productOne} />
-                <Product productImg={productOne} />
-                <Product productImg={productOne} />
-                <Product productImg={productOne} />
-              </Flex> */}
+                <Product productImg={productTwo} />
+                <Product productImg={productThree} />
+                <Product productImg={productFour} />
+              </Flex>
           </Container>
         </div>
     </>

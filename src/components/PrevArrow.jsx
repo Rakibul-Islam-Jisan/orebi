@@ -6,7 +6,7 @@ const PrevArrow = (props) => {
   return (
     <>
         <div
-      className={'bg-[#111] absolute top-[40%] translate-y-[-50%] w-[60px] h-[60px] flex items-center justify-center rounded-full text-white shadow-2xl z-20 left-2 '}
+      className={'bg-[#111] absolute top-[50%] translate-y-[-50%] w-[60px] h-[60px] flex items-center justify-center rounded-full text-white shadow-2xl z-20 left-2 '}
       
       onClick={onClick}
     > <GrFormPrevious/> </div>

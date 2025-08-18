@@ -6,7 +6,7 @@ const NextArrow = (props) => {
   return (
     <>
         <div
-      className={'bg-[#111] w-[60px] h-[60px] rounded-full flex justify-center items-center text-white absolute top-[40%] translate-y-[-50%] right-2'}
+      className={'bg-[#111] w-[60px] h-[60px] rounded-full flex justify-center items-center text-white absolute top-[50%] translate-y-[-50%] right-2'}
       
       onClick={onClick}
     ><MdOutlineNavigateNext/></div>
