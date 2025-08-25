@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Container from '../Container'
 import Flex from '../Flex'
 import logo from "../../assets/logo.png"
@@ -9,9 +9,30 @@ import { Link } from 'react-router-dom';
 
 
 const Header = () => {
+    const [open , setOpen] = useState(false)
+    let catRef = useRef()
+    
+  useEffect(() => {
+  
+    document.addEventListener("click",(e)=>{
+        if(catRef.current.contains(e.target)){
+            setOpen(!open)
+        }else{
+            setOpen(false)
+        }
+        // console.log(catRef.current.contains(e.target));
+        
+        
+    })
+
+
+  }, [])
+    
+    
   return (
     <>
-        <div className='py-8'>
+       <div>
+         <div  className='py-8'>
             <Container>
             <Flex className={"justify-between"}>
                 <div className='w-[40%]'>
@@ -41,10 +62,32 @@ const Header = () => {
         <div className='py-8 bg-[#F5F5F3]'>
             <Container>
                 <Flex className={"justify-between"}>
-                    <div className='flex gap-1 items-center'>
-                    <HiBars3CenterLeft />
-                    <h3>Shop by Category</h3>
+                    <div   className='flex gap-1 relative items-center'>
+                    <div className='flex cursor-pointer gap-1 items-center' ref={catRef}>
+                        <HiBars3CenterLeft />
+                    <h3 >Shop by Category</h3>
                     </div>
+
+                    {
+                        open && (
+                            <ul className='absolute menu w-[200px] mt-4 left-5 rounded-tr-4xl rounded-br-4xl bg-white shadow-[10px_10px_62px_-21px_rgba(66,68,90,1)] top-[100%]'>
+                        <Link to="/shop" >
+                            <li className='py-2 pl-4 hover:shadow-[10px_10px_80px_-15px_rgba(0,0,0,0.9)] rounded-tr-4xl duration-500 linear hover:font-black'>Beauty</li>
+                        </Link>
+                        <Link to="/shop">
+                            <li className='py-2 pl-4 hover:shadow-[10px_10px_80px_-15px_rgba(0,0,0,0.9)] duration-500 linear hover:font-black'>Fragrance</li>
+                        </Link>
+                        <Link to="/shop">
+                            <li className='py-2 pl-4 hover:shadow-[10px_10px_80px_-15px_rgba(0,0,0,0.9)] duration-500 linear hover:font-black'>Groceries</li>
+                        </Link>
+                        <Link to="/shop">
+                            <li className='py-2 pl-4 hover:shadow-[10px_10px_80px_-15px_rgba(0,0,0,0.9)] rounded-br-4xl duration-500 linear hover:font-black'>Furniture</li>
+                        </Link>
+                    </ul>
+                        )
+                    }
+                    </div>
+
                     <div className='w-[500px] relative'>
                         <input placeholder='Search Products' className='w-full py-[16px] px-[20px] bg-white border-none outline-none '></input>
                         <CiSearch className='absolute top-1/2 -translate-y-1/2 right-[20px]' />
@@ -59,6 +102,7 @@ const Header = () => {
                 </Flex>
             </Container>
         </div>
+       </div>
     </>
   )
 }

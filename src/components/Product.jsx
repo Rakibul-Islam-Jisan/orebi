@@ -9,15 +9,15 @@ import { GrOverview } from "react-icons/gr";
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const Product = ({productImg}) => {
+const Product = ({productImg, pName, pPrice}) => {
   return (
     <div className='py-6 mx-4'>
       <Container>
-        <div className=' relative  group overflow-hidden main  shadow-[10px_10px_62px_-21px_rgba(66,68,90,1)]'>
+        <div className=' relative bg-gray-100  group overflow-hidden main  shadow-[10px_10px_62px_-21px_rgba(66,68,90,1)]'>
           <Badge badgeText={"New"} />
           <img className='' src={productImg}></img>
           <div className='w-full h-[0px] pr-5 opacity-0 group-hover:h-[150px] group-hover:opacity-100 transition-all duration-500 ease-in-out 
- overlay bg-white/70 absolute bottom-[50px]'>
+ overlay bg-white/70 absolute bottom-[59px]'>
 
 
             <div className='flex flex-col  gap-3 pt-5 items-end'>
@@ -44,9 +44,9 @@ const Product = ({productImg}) => {
             </div>
 
           </div>
-          <Flex className={'justify-between px-3 pt-5 pb-5'}>
-            <h3>Product Name</h3>
-            <h3>Price</h3>
+          <Flex className={'justify-between px-2 pt-5 pb-5'}>
+            <h3 className='text-[13px] font-semibold'>{pName}</h3>
+            <h3 className='text-[13px] font-semibold'>{pPrice}</h3>
           </Flex>
         </div>
       </Container>
