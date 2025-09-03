@@ -1,10 +1,11 @@
 import React from 'react'
+import ShopItem from '../Layout/ShopItem'
 
 const Shop = () => {
   return (
-    <div>
-        <h1>This is Shop Page</h1>
-    </div>
+   <>
+    <ShopItem/>
+   </>
   )
 }
 
