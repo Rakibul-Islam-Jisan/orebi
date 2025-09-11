@@ -7,7 +7,7 @@ export const addToCartSlice = createSlice({
   },
   reducers: {
     addtocart: (state, action) => {
-      state.value.push(action.payload)
+      
       let mydata = state.value.find(item=>item.title === action.payload.title)
       if(mydata){
         mydata.quantity+=1
