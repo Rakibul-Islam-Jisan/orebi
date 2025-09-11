@@ -8,8 +8,24 @@ import { FaCartArrowDown } from "react-icons/fa6";
 import { GrOverview } from "react-icons/gr";
 import { FaHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { addtocart } from '../slices/addToCartSlice';
+import { useDispatch } from 'react-redux';
+
 
 const Product = ({productImg, pName, pPrice}) => {
+
+  let dispatch = useDispatch()
+
+  const handleCart = ()=>{
+    dispatch(addtocart({
+      title: pName,
+      price: pPrice,
+      image : productImg,
+      quantity : 1
+    }))
+    
+  }
+
   return (
     <div className='py-6 mx-4'>
       <Container>
@@ -28,12 +44,12 @@ const Product = ({productImg, pName, pPrice}) => {
               </Flex>
               </Link>
               
-              <Link to="/">
-                <Flex className={'gap-2'}>
-                <h3>Add to Cart</h3>
+              
+                <Flex className={'gap-2'}  >
+                <h3 onClick={handleCart}>Add to Cart</h3>
                 <FaCartArrowDown />
               </Flex>
-              </Link>
+              
               
               <Link to="/">
                 <Flex className={'gap-2'}>
