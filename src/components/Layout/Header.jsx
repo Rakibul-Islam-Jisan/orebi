@@ -147,33 +147,42 @@ const Header = () => {
                                     )
                                 }
 
-                                <div onClick={() => setCart(!cart)} className='relative'>
-                                    <FaShoppingCart />
-                                    
-                                </div>
+
+                                <FaShoppingCart onClick={() => setCart(!cart)} />
+
+
+
+
                                 {
-                                        cart && (
-                                            
-                                                <div className='w-[800px] h-screen  shadow-[5px_5px_30px_-15px_rgba(0,0,0,0.9)] rounded-2xl flex justify-between text-black  px-6 bg-gray-100 absolute -right-40 top-0 '>
-                                                    <ImCross onClick={() => setCart(!cart)} className='text-[20px]' />
-                                                    {
-                                                        cartData.map(item => (
-                                                            <>
-                                                                
-                                                               
-                                                                     <li>{item.title}</li>
-                                                                <li>{item.price}</li>
-                                                                <li>{item.quantity}</li>
-                                                                <div className='w-[30px]'><img className='w-full' src={item.image}></img></div>
-                                                            
-                                                    
-                                                            </>
-                                                        ))
-                                                    }
-                                                </div>
-                                            
-                                        )
-                                    }
+                                    cart && (
+                                        <div className='w-[800px]  py-6 shadow-[5px_5px_30px_-15px_rgba(0,0,0,0.9)] flex-col rounded-2xl flex justify-between text-black  px-6 bg-gray-100 absolute right-0 top-0 '>
+                                            <ImCross onClick={() => setCart(!cart)} />
+                                            {/* <ul className='flex w-full border-2  justify-between'>
+
+                                                <li>Title</li>
+                                                <li>Price</li>
+                                                <li>Quantity</li>
+                                                <li>Image</li>
+                                                <li>Total</li>
+                                            </ul> */}
+
+                                            {
+                                                cartData.map(item => (
+                                                    <ul className='flex w-full border-2  justify-between'>
+                                                        <li>{item.title}</li>
+                                                        <li>{item.price}</li>
+                                                        <li>{item.quantity}</li>
+                                                        <div className='w-[20px]'><img className='w-full' src={item.image}></img></div>
+                                                        <li>{Number(item.price)*Number(item.quantity) }</li>
+                                                    </ul>
+                                                ))
+                                            }
+
+                                        </div>
+                                    )
+                                }
+
+
                             </div>
                         </Flex>
                     </Container>

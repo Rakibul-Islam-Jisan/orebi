@@ -10,7 +10,7 @@ export const addToCartSlice = createSlice({
       state.value.push(action.payload)
       let mydata = state.value.find(item=>item.title === action.payload.title)
       if(mydata){
-        mydata.quantity +=1
+        mydata.quantity+=1
       }
       else{
         state.value.push({...action.payload,quantity : 1})
